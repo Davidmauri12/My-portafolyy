@@ -1,58 +1,28 @@
-/*
-Metodología BEM: https://en.bem.info/methodology/quick-start/
-Generador de animaciones: https://animista.net/
-Efectos de hover para botones y enlaces: https://ianlunn.github.io/Hover/
-Loaders con CSS: https://css-loaders.com/
-Sombras con CSS: https://getcssscan.com/css-box-shadow-examples
-Frontend Code con ideas geniales: https://codepen.io/
-==============================
-  * CSS TABLE CONTENT *  
-==============================
-1. GOOGLE FONT
-2. VARIABLES CSS
-3. BASE
-4. REUSABLE CSS CLASSES
-5. HEADER & NAV
-6. BREAKPOINTS
-==============================
-  * END TABLE CONTENT *  
-==============================
-*/
-
-/* ============= VARIABLES CSS ============= */
-
 :root {
 	color-scheme: light dark;
-	/* height */
+
 	--header-height: 60px;
 
-	/* Colores */
 	--primary-color: light-dark(#111, #ffffffcc);
 	--bg-color-section1: light-dark(#eee, #111);
 	--bg-color-section2: light-dark(#fafafa, #6a6a6a);
 	--bg-color-buttons: light-dark(#e0e0e0, #6a6a6a);
 
-	/* Typografia */
 	--normal-font-size: 16px;
 	--small-font-size: 12px;
 
-	/* Grosores */
 	--font-semi-bold: 600;
 
-	/* Margenes */
 	--mr-2: 16px;
 	--mr-3: 20px;
 	--mr-4: 26px;
 
-	/* z index */
 	--z-fixed: 1;
 	--z-modal: 2;
 
-	/* Sombras */
 	--box-shadow: 0px 10px 100px #0000001a;
 }
 
-/* ============= BASE ============= */
 html {
 	box-sizing: border-box;
 	scroll-behavior: smooth;
@@ -82,14 +52,14 @@ html {
 		height: auto;
 		display: block;
 	}
-	/* darkmode  */
+
 	&:has([name='color-scheme']:checked) {
 		color-scheme: dark;
 	}
 	&:has([name='color-scheme']) {
 		color-scheme: light;
 	}
-	/* scroll  */
+
 	&::-webkit-scrollbar {
 		width: 10px;
 	}
@@ -104,7 +74,6 @@ html {
 	}
 }
 
-/* ============= REUSABLE CLASSES ============= */
 .section {
 	padding: 4rem 0;
 	.section__title {
@@ -148,7 +117,6 @@ html {
 	background-color: var(--bg-color-buttons);
 }
 
-/*===== Loader =====*/
 .loader {
 	position: fixed;
 	top: 0;
@@ -182,8 +150,6 @@ html {
 		transform: translateY(-10%) scaleY(1.05);
 	}
 }
-
-/* ============= Header & NavBar ============= */
 
 .header {
 	position: fixed;
@@ -260,11 +226,9 @@ html {
 			}
 		}
 
-		/* toggles  */
 		.navbar__toggles {
 			gap: 1rem;
 
-			/* darkmode toggle */
 			.navbar__toggle--darkmode {
 				.navbar__toggle--darkmode-label {
 					width: 42px;
@@ -337,7 +301,6 @@ html {
 				}
 			}
 
-			/* language toggle */
 			.navbar__toggle--language {
 				.navbar__toggle--language-label {
 					width: 42px;
@@ -402,7 +365,6 @@ html {
 	}
 }
 
-/* ============= Home ============= */
 .home {
 	background-color: var(--bg-color-section1);
 	position: relative;
@@ -529,7 +491,6 @@ html {
 	}
 }
 
-/* ============= About ============= */
 .about {
 	background-color: var(--bg-color-section2);
 	overflow: hidden;
@@ -556,7 +517,6 @@ html {
 	}
 }
 
-/* ============= skills ============= */
 .skills {
 	background-color: var(--bg-color-section1);
 	.skills__container {
@@ -630,45 +590,6 @@ html {
 		}
 	}
 }
-
-/* ============= Projects ============= */
-.projects {
-	background-color: var(--bg-color-section2);
-	.projects__container {
-		gap: 2rem;
-		.projects__inner {
-			margin: 0;
-			.projects__image {
-				border-radius: 5px;
-				img {
-					width: 100%;
-					height: auto;
-					object-fit: cover;
-					border-radius: 5px;
-					box-shadow: 6px 11px 13px 0 #0000002e;
-					animation: showing linear both;
-					animation-timeline: view();
-					animation-range: entry 25% cover 35%;
-				}
-			}
-			.projects__info {
-				padding: 1rem;
-				.projects__buttons {
-					display: flex;
-					flex-wrap: wrap;
-					gap: 1rem;
-					.projects__button {
-						color: var(--bg-color-section2);
-						background-color: var(--primary-color);
-						padding: 0.75rem 1.5rem;
-						font-size: var(--small-font-size);
-					}
-				}
-			}
-		}
-	}
-}
-
 @keyframes showing {
 	from {
 		opacity: 0;
@@ -886,34 +807,6 @@ html {
 							height: 500px;
 							width: inherit;
 						}
-					}
-				}
-			}
-		}
-	}
-
-	.projects {
-		.projects__container {
-			padding: 3rem 0;
-			gap: 5rem;
-
-			.projects__project {
-				.projects__inner {
-					grid-template-columns: repeat(2, 1fr);
-				}
-
-				&:nth-child(even) {
-					.projects__image {
-						order: 2;
-					}
-
-					.projects__info {
-						order: 1;
-						text-align: right;
-					}
-
-					.projects__buttons {
-						justify-content: flex-end;
 					}
 				}
 			}
